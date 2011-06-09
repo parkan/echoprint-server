@@ -370,9 +370,9 @@ def query_fp(code_string, rows=15, local=False, get_data=False):
     try:
         # query the fp flat
         if get_data:
-            fields = "track_id,artist,release,track,length"
+            fields = "track_id,artist,release,track,length,fp"
         else:
-            fields = "track_id"
+            fields = "track_id,fp"
         with solr.pooled_connection(_fp_solr) as host:
             resp = host.query(code_string, qt="/hashq", rows=rows, fields=fields)
         return resp
