@@ -6,6 +6,7 @@
     <!-- A string field for the track IDs -->
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
     <fieldType name="int" class="solr.TrieIntField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+    <fieldType name="date" class="solr.DateField"/>
 
     <!-- A field for the fingerprint hashes and time offsets -->
     <fieldType name="fphash" class="solr.TextField">
@@ -22,12 +23,15 @@
     <field name="track_id" type="string" indexed="true" stored="true" required="true"/>
 
     <!-- The hashes associated with a track, which is our default search field -->
-    <field name="fp" type="fphash" indexed="true" stored="true" required="true"/>
+    <field name="fp" type="fphash" indexed="true" stored="false" required="true"/>
     
     <field name="artist" type="string" indexed="true" stored="true" required="false"/>
     <field name="release" type="string" indexed="true" stored="true" required="false"/>
     <field name="track" type="string" indexed="true" stored="true" required="false"/>
     <field name="length" type="int" indexed="true" stored="true" required="true"/>
+    <field name="codever" type="string" indexed="true" stored="true" required="true"/>
+    <field name="source" type="string" indexed="true" stored="true" required="true"/>
+    <field name="import_date" type="date" indexed="true" stored="true" required="true"/>
 
   </fields>
 
